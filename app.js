@@ -402,15 +402,7 @@ var worker = function () {
 
                                 return s.pipe(response);
                         });
-                }).listen(443, "87.106.69.16");
-
-                http.createServer(function (request, response) {
-                        if ( !request.headers.host ) response.end();
-                        
-                        return response.writeHead(302, {
-                                'Location': 'https://sly.mn' + request.url
-                        }), response.end();
-                }).listen(80, "87.106.69.16");
+                }).listen(port);
 
                 console.log("[" + process.pid + "] Ready.");
         });
