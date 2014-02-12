@@ -297,11 +297,7 @@ var worker = function () {
                         })
                 }
 
-                spdy.createServer({
-                        ca: fs.readFileSync("./lib/tls/ca"),
-                        key: fs.readFileSync("./lib/tls/key"),
-                        cert: fs.readFileSync("./lib/tls/cert")
-                }, function (request, response) {
+                http.createServer(function (request, response) {
                         var uri = url.parse(request.url).pathname;
 
                         sanitize(uri, function (uri, fn_, forceDelegation) {
